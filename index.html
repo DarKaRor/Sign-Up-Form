@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./scss/style.css">
+  <title>Frontend Mentor | Intro component with sign up form</title>
+</head>
+
+<body>
+  <main class="container">
+    <section class="container__intro">
+      <h1 class="textblock">
+        <span class="textblock__title">
+          Learn to code by watching others
+        </span>
+        <span class="textblock__subtitle">
+          See how experienced developers solve problems in real-time. Watching scripted tutorials is great,
+          but understanding how developers think is invaluable.
+        </span>
+      </h1>
+    </section>
+    <section class="container__form">
+      <button class="button shadow">
+        <p class="button__text">
+          <span class="bold">Try it free 7 days</span>
+          then $20/mo. thereafter
+        </p>
+      </button>
+      <form action="" class="form shadow">
+        <div class="form__container">
+          <input id="firstName" type="text" placeholder="First Name" class="form__input">
+          <p class="form__errorMsg">First Name cannot be empty</p>
+        </div>
+        <div class="form__container">
+          <input id="lastName" type="text" placeholder="Last Name" class="form__input">
+          <p class="form__errorMsg">Last Name cannot be empty</p>
+        </div>
+        <div class="form__container">
+          <input id="email" type="text" placeholder="Email Address" class="form__input">
+          <p class="form__errorMsg">Looks like this is not an email</p>
+        </div>
+        <div class="form__container">
+          <input id="password" type="password" placeholder="Password" class="form__input">
+          <p class="form__errorMsg">Password cannot be empty</p>
+        </div>
+        
+        <button class="button button--green button--upper button--3d">
+          <p class="button__text">
+            Claim your free trial
+          </p>
+        </button>
+        <p class="form__subtitle">
+          By clicking the button, you are agreeing to our <span class="red bolder">Terms and Services</span>
+        </p>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">DarKaRo</a>.
+    </p>
+  </footer>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>

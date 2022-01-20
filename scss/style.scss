@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+// Variables
+$red: hsl(0, 100%, 74%);
+$green: hsl(154, 59%, 51%);
+$blue: hsl(248, 32%, 49%);
+$dark-blue: hsl(249, 10%, 26%);
+$grayish-blue: hsl(246, 25%, 77%);
+
+$font : 'Poppins', sans-serif;
+
+@mixin flex-align($h:center,$v:center){
+    display:flex;
+    align-items:$v;
+    justify-content:$h;
+}
+
+@mixin outline-text($color){
+    text-shadow: -1px -1px 0 $color, 1px -1px 0 $color, -1px 1px 0 $color, 1px 1px 0 $color;
+}
+
+html{
+    font-size:16px;
+}
+
+body{
+    font-family: $font;
+    min-height:100vh;
+    min-width:100vw;
+    @include flex-align();
+    background-image: url('../images/bg-intro-desktop.png');
+    background-color:$red;
+    background-position: 14px -5px;
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+footer{
+    position:fixed;
+    color:white;
+    bottom:0;
+    @include outline-text(black);
+    a{
+        text-decoration: none;
+        color:$blue;
+    }
+    
+}
+
+.container{
+    @include flex-align();
+
+    padding: 0px 11.4583vw;
+
+    &__form{
+        width:50%;
+        padding-left:15px;
+        @include flex-align(center,flex-start);
+        flex-direction: column;
+        max-width:550px;
+    }
+
+    &__intro{
+        color:white;
+        width:50%;
+        padding:0px 35px 0px 0px;
+    }
+}
+
+.textblock{
+
+    &__title{
+        font-size:3.08rem;
+        font-weight:700;
+        line-height: 1.1em;	
+        display: inline-block;
+
+        ~.textblock__subtitle{
+            margin-top:2.1875em;
+        }
+    }
+
+    &__subtitle{
+        display:block;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+}
+
+.form{
+    background:white;
+    border-radius:10px;
+    margin-top:1.5em;
+    padding: 2.5em;
+    width:100%;
+
+    
+    &__errorIcon,&__errorMsg{
+        display:none;
+    }
+
+    &__input{
+        $border: 1px solid;
+        border: $border rgb(218, 218, 218);
+        border-radius:5px;
+        width:100%;
+        padding: 1.2em 2em;
+        font-size: .9rem;
+        font-weight: 700;
+        margin-bottom:  1.25em;
+        font-family: $font;
+        color:$dark-blue;
+        caret-color: $dark-blue;
+
+        &:focus{
+            outline:none;
+            border-color:$blue;
+        }
+    }
+
+    &__subtitle{
+        font-size: .7rem;
+        font-weight: 400;  
+        color: $grayish-blue;
+        text-align: center;
+        margin-top: 1.5em;
+    }
+
+    &__container--error{
+
+        position:relative;
+        $errorSize: .9rem;
+
+        .form__errorIcon,.form__errorMsg{
+            display:block;
+        }
+
+        .form__errorIcon{
+            position:absolute;
+            right:0;
+            $size: 25px;
+            $offset: $size/2;
+            $inputSize:calc(100% - #{$errorSize});
+            top: calc(#{$inputSize} - #{$inputSize}/2 - #{$offset});
+            right: $size;
+            width:$size;
+            height:$size;
+            background-image: url('../images/icon-error.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .form__errorMsg{
+            margin-bottom:1em;
+            text-align:right;
+            font-size: $errorSize;
+            color:$red;
+            font-style:italic;
+        }
+
+        .form__input{
+            border:3px solid $red;
+            position:relative;
+            margin-bottom:0;
+            color:$red;
+
+            &:focus{
+                border-color:$red;
+            }
+        }
+    }
+
+    button{
+        border-radius:5px;
+    }
+}
+
+.button{
+    font-family: $font;
+    background-color:$blue;
+    border:none;
+    color:white;
+    width:100%;
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-size: .95rem;
+    word-spacing: 0em;
+    text-align: center;
+    cursor:pointer;
+    transition: background-color .3s ease-in-out;
+
+    &:hover{
+        background-color: $blue - 20%;
+    }
+
+    &--green{
+        background-color:$green;
+
+        &:hover{
+            background-color:$green - 20%;
+        }
+    }
+
+    &--upper{
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: .05em;
+    }
+
+    &--3d{
+        box-shadow: 0px -2px 0px 2px rgba(0,0,0,0.15) inset;
+    }
+}
+
+// Global Modifiers
+
+.shadow{
+    box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.15);
+}
+
+
+.bold{
+    font-weight:600;
+}
+
+.bolder{
+    font-weight:700;
+}
+
+.red{
+    color:$red;
+}
+
+
+@media only screen and (max-width:900px){
+
+    html{
+        font-size:13px;
+    }
+
+    .container{
+        flex-direction: column;
+        padding: 100px 11vw;
+
+        &__intro{
+            width:100%;
+            padding:0;
+            text-align: center;
+        }
+
+        &__form{
+            width:100%;
+            padding:0;
+            margin-top:4.5em;
+        }
+    }
+
+    .form{
+        width:100%;
+
+        &__subtitle,&__input{
+            font-size:1rem;
+        }
+    }
+
+}
+
+@media only screen and (max-width:450px){
+    html{
+        font-size:11px;
+    }
+
+    body{
+        background-image: url('../images/bg-intro-mobile.png');
+    }
+
+    .container{
+        padding: 100px 5vw;
+    }
+
+    .textblock{
+        &__subtitle{
+            font-size: 1.5rem;
+        }
+    }
+
+    .button{
+        font-size: 1.4rem;
+    }
+
+}
